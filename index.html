@@ -21,9 +21,13 @@
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
+	
 	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -40,7 +44,71 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+	<style>
+		 /* Style buttons */
+		.btn {
+		background-color: DodgerBlue;
+		border: none;
+		color: white;
+		padding: 12px 30px;
+		cursor: pointer;
+		font-size: 20px;
+		}
 
+		/* Darker background on mouse-over */
+		.btn:hover {
+		background-color: RoyalBlue;
+		} 
+
+
+		 /* The snackbar - position it at the bottom and in the middle of the screen */
+		#snackbar {
+		visibility: hidden; /* Hidden by default. Visible on click */
+		min-width: 250px; /* Set a default minimum width */
+		margin-left: -125px; /* Divide value of min-width by 2 */
+		background-color: #333; /* Black background color */
+		color: #fff; /* White text color */
+		text-align: center; /* Centered text */
+		border-radius: 2px; /* Rounded borders */
+		padding: 16px; /* Padding */
+		position: fixed; /* Sit on top of the screen */
+		z-index: 1; /* Add a z-index if needed */
+		left: 50%; /* Center the snackbar */
+		bottom: 30px; /* 30px from the bottom */
+		}
+
+		/* Show the snackbar when clicking on a button (class added with JavaScript) */
+		#snackbar.show {
+		visibility: visible; /* Show the snackbar */
+		/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+		However, delay the fade out process for 2.5 seconds */
+		-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+		animation: fadein 0.5s, fadeout 0.5s 2.5s;
+		}
+
+		/* Animations to fade the snackbar in and out */
+		@-webkit-keyframes fadein {
+		from {bottom: 0; opacity: 0;}
+		to {bottom: 30px; opacity: 1;}
+		}
+
+		@keyframes fadein {
+		from {bottom: 0; opacity: 0;}
+		to {bottom: 30px; opacity: 1;}
+		}
+
+		@-webkit-keyframes fadeout {
+		from {bottom: 30px; opacity: 1;}
+		to {bottom: 0; opacity: 0;}
+		}
+
+		@keyframes fadeout {
+		from {bottom: 30px; opacity: 1;}
+		to {bottom: 0; opacity: 0;}
+		} 
+	</style>
+
+	
 	</head>
 	<body>
 	
@@ -62,7 +130,7 @@
 							<p>
 								<ul class="fh5co-social-icons">
 									
-									<li><a href="#"><i class="icon-facebook2"></i></a></li>
+									<li><a href="javascript:void{0}"><i class="icon-facebook2"></i></a></li>
 									
 									
 								</ul>
@@ -106,6 +174,10 @@
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 					<h2>My Resume</h2>
+					<button class="btn" onclick="myFunction()"><i class="fa fa-download"></i> <a href="Rsme.pdf" download></a> Download</button>
+
+					<div id="snackbar">Resume Downloading(Test)</div>
+			
 				</div>
 			</div>
 			<div class="row">
@@ -562,8 +634,16 @@
 	</div>
 
 	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
+		<a href="javascript:void{0}" class="js-gotop"><i class="icon-arrow-up22"></i></a>
 	</div>
+
+	<script>
+		function myFunction() {
+		  var x = document.getElementById("snackbar");
+		  x.className = "show";
+		  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+		}
+		</script>
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
